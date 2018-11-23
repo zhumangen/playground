@@ -35,7 +35,7 @@ limitations under the License.
   <meta name="twitter:image:height" content="295">
 
   <meta name="author" content="Daniel Smilkov and Shan Carter">
-  <title>A Neural Network Playground</title>
+  <title>欢迎使用神经网络</title>
   <link rel="stylesheet" href="bundle.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons" rel="stylesheet" type="text/css">
   <script src="lib.js"></script>
@@ -50,7 +50,7 @@ limitations under the License.
   </a>
   <!-- Header -->
   <header>
-    <h1 class="l--page">Tinker With a <b>Neural Network</b> <span class="optional">Right Here </span>in Your Browser.<br>Don’t Worry, You Can’t Break It. We Promise.</h1>
+    <h1 class="l--page">欢迎使用<b>神经网络</b>，体验科技的魅力！<br>请尝试不同的选项，用最少的特征和最简单的网络结构最完美的解决下面的问题。</h1>
   </header>
 
   <!-- Top Controls -->
@@ -69,11 +69,11 @@ limitations under the License.
         </button>
       </div>
       <div class="control">
-        <span class="label">Epoch</span>
+        <span class="label">完整训练次数</span>
         <span class="value" id="iter-number"></span>
       </div>
       <div class="control ui-learningRate">
-        <label for="learningRate">Learning rate</label>
+        <label for="learningRate">学习速率</label>
         <div class="select">
           <select id="learningRate">
             <option value="0.00001">0.00001</option>
@@ -91,7 +91,7 @@ limitations under the License.
         </div>
       </div>
       <div class="control ui-activation">
-        <label for="activations">Activation</label>
+        <label for="activations">激活函数</label>
         <div class="select">
           <select id="activations">
             <option value="relu">ReLU</option>
@@ -102,7 +102,7 @@ limitations under the License.
         </div>
       </div>
       <div class="control ui-regularization">
-        <label for="regularizations">Regularization</label>
+        <label for="regularizations">正则化</label>
         <div class="select">
           <select id="regularizations">
             <option value="none">None</option>
@@ -112,7 +112,7 @@ limitations under the License.
         </div>
       </div>
       <div class="control ui-regularizationRate">
-        <label for="regularRate">Regularization rate</label>
+        <label for="regularRate">正则化率</label>
         <div class="select">
           <select id="regularRate">
             <option value="0">0</option>
@@ -129,11 +129,11 @@ limitations under the License.
         </div>
       </div>
       <div class="control ui-problem">
-        <label for="problem">Problem type</label>
+        <label for="problem">问题类型</label>
         <div class="select">
           <select id="problem">
-            <option value="classification">Classification</option>
-            <option value="regression">Regression</option>
+            <option value="classification">经典</option>
+            <option value="regression">回归</option>
           </select>
         </div>
       </div>
@@ -146,10 +146,10 @@ limitations under the License.
     <!--  Data Column-->
     <div class="column data">
       <h4>
-        <span>Data</span>
+        <span>数据</span>
       </h4>
       <div class="ui-dataset">
-        <p>Which dataset do you want to use?</p>
+        <p>您想要使用那个数据集？</p>
         <div class="dataset-list">
           <div class="dataset" title="Circle">
             <canvas class="data-thumbnail" data-dataset="circle"></canvas>
@@ -173,33 +173,33 @@ limitations under the License.
       </div>
       <div>
         <div class="ui-percTrainData">
-          <label for="percTrainData">Ratio of training to test data:&nbsp;&nbsp;<span class="value">XX</span>%</label>
+          <label for="percTrainData">训练数据与测试数据比例：<span class="value">XX</span>%</label>
           <p class="slider">
             <input class="mdl-slider mdl-js-slider" type="range" id="percTrainData" min="10" max="90" step="10">
           </p>
         </div>
         <div class="ui-noise">
-          <label for="noise">Noise:&nbsp;&nbsp;<span class="value">XX</span></label>
+          <label for="noise">噪点：<span class="value">XX</span></label>
           <p class="slider">
             <input class="mdl-slider mdl-js-slider" type="range" id="noise" min="0" max="50" step="5">
           </p>
         </div>
         <div class="ui-batchSize">
-          <label for="batchSize">Batch size:&nbsp;&nbsp;<span class="value">XX</span></label>
+          <label for="batchSize">批量大小：<span class="value">XX</span></label>
           <p class="slider">
             <input class="mdl-slider mdl-js-slider" type="range" id="batchSize" min="1" max="30" step="1">
           </p>
         </div>
           <button class="basic-button" id="data-regen-button" title="Regenerate data">
-            Regenerate
+            重新生成
           </button>
       </div>
     </div>
 
     <!-- Features Column -->
     <div class="column features">
-      <h4>Features</h4>
-      <p>Which properties do you want to feed in?</p>
+      <h4>特征</h4>
+      <p>您想要输入哪些属性：</p>
       <div id="network">
         <svg id="svg" width="510" height="450">
           <defs>
@@ -210,8 +210,8 @@ limitations under the License.
         </svg>
         <!-- Hover card -->
         <div id="hovercard">
-          <div style="font-size:10px">Click anywhere to edit.</div>
-          <div><span class="type">Weight/Bias</span> is <span class="value">0.2</span><span><input type="number"/></span>.</div>
+          <div style="font-size:10px">单击开始编辑</div>
+          <div><span class="type">权重：</span><span class="value">0.2</span><span><input type="number"/></span>.</div>
         </div>
         <div class="callout thumbnail">
           <svg viewBox="0 0 30 30">
@@ -223,7 +223,7 @@ limitations under the License.
             <path d="M12,30C5,20 2,15 12,0" marker-end="url(#arrow)">
           </svg>
           <div class="label">
-            This is the output from one <b>neuron</b>. Hover to see it larger.
+            这是单个<b>神经元</b>的输出，鼠标悬停在上方可放大查看。
           </div>
         </div>
         <div class="callout weights">
@@ -236,7 +236,7 @@ limitations under the License.
             <path d="M12,30C5,20 2,15 12,0" marker-end="url(#arrow)">
           </svg>
           <div class="label">
-            The outputs are mixed with varying <b>weights</b>, shown by the thickness of the lines.
+            输出中混合了不同的<b>权重</b>，并按线条粗细来表示。
           </div>
         </div>
       </div>
@@ -261,14 +261,14 @@ limitations under the License.
 
     <!-- Output Column -->
     <div class="column output">
-      <h4>Output</h4>
+      <h4>输出</h4>
       <div class="metrics">
         <div class="output-stats ui-percTrainData">
-          <span>Test loss</span>
+          <span>测试损失：</span>
           <div class="value" id="loss-test"></div>
         </div>
         <div class="output-stats train">
-          <span>Training loss</span>
+          <span>训练损失：</span>
           <div class="value" id="loss-train"></div>
         </div>
         <div id="linechart"></div>
@@ -279,7 +279,7 @@ limitations under the License.
 
           <!-- Gradient color scale -->
           <div class="label" style="width:105px; margin-right: 10px">
-            Colors shows data, neuron and weight values.
+            颜色代表不同的数据、神经元和权重值。
           </div>
           <svg width="150" height="30" id="colormap">
             <defs>
@@ -298,11 +298,11 @@ limitations under the License.
         <div style="display:flex;">
           <label class="ui-showTestData mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="show-test-data">
             <input type="checkbox" id="show-test-data" class="mdl-checkbox__input" checked>
-            <span class="mdl-checkbox__label label">Show test data</span>
+            <span class="mdl-checkbox__label label">显示测试数据</span>
           </label>
           <label class="ui-discretize mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="discretize">
             <input type="checkbox" id="discretize" class="mdl-checkbox__input" checked>
-            <span class="mdl-checkbox__label label">Discretize output</span>
+            <span class="mdl-checkbox__label label">离散化输出</span>
           </label>
         </div>
       </div>

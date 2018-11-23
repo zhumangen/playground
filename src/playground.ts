@@ -696,9 +696,10 @@ function addPlusMinusControl(x: number, layerIdx: number) {
       .attr("class", "material-icons")
       .text("remove");
 
-  let suffix = state.networkShape[i] > 1 ? "s" : "";
+  // let suffix = state.networkShape[i] > 1 ? "s" : "";
   div.append("div").text(
-    state.networkShape[i] + " neuron" + suffix
+    // state.networkShape[i] + " neuron" + suffix
+    state.networkShape[i] + '个神经元'
   );
 }
 
@@ -945,8 +946,7 @@ function reset(onStartup=false) {
   }
   player.pause();
 
-  let suffix = state.numHiddenLayers !== 1 ? "s" : "";
-  d3.select("#layers-label").text("Hidden layer" + suffix);
+  d3.select("#layers-label").text('隐藏层');
   d3.select("#num-layers").text(state.numHiddenLayers);
 
   // Make a simple network.
