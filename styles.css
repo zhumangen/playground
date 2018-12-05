@@ -60,7 +60,7 @@ p a {
 }
 
 .l--page {
-  padding: 30px 30px
+  padding: 20px 30px
 }
 
 /* Buttons */
@@ -530,6 +530,32 @@ g.column rect {
   color: rgba(0, 0, 0, 0.8);
 }
 
+/* input-image column */
+.input-images.column {
+  width: 20%;
+}
+
+.input-images.column .input-viewport {
+  height: 100%;
+}
+
+.input-images.column .input-viewport .viewport {
+  height: 33%;
+}
+
+/* output-image column */
+.output-image.column {
+  width: 20%;
+}
+
+.output-image.column .output-viewport {
+  height: 100%;
+}
+
+.output-image.column .output-viewport .viewport {
+  height: 50%;
+}
+
 /* Features column */
 
 .features.column {
@@ -588,7 +614,7 @@ g.column rect {
 
 #network {
   position: absolute;
-  top: 110px;
+  top: 150px;
   left: 0;
   z-index: 100;
 }
@@ -690,6 +716,7 @@ g.column rect {
 
 .hidden-layers.column {
   width: 40%;
+  padding-top: 40px;
 }
 
 #main-part .hidden-layers h4 {
