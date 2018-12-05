@@ -546,6 +546,7 @@ g.column rect {
 /* output-image column */
 .output-image.column {
   width: 20%;
+  padding-top: 40px;
 }
 
 .output-image.column .output-viewport {
@@ -774,7 +775,7 @@ g.column rect {
   width: 50%;
   height: 55px;
 }
-.metrics .train {
+.metrics .output-stats {
   color: #777;
 }
 
