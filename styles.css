@@ -66,18 +66,18 @@ p a {
 /* Buttons */
 
 #main-part .mdl-button {
-  background-color: rgba(28, 105, 105, .2);
+  background-color: rgba(28, 105, 105, .4);
   width: 28px;
   height: 28px;
   min-width: 28px;
 }
 
 #main-part .mdl-button:hover {
-  background-color: rgba(28, 105, 105, .7);
+  background-color: rgba(28, 105, 105, 1);
 }
 
 #main-part .mdl-button:focus:not(:active) {
-  background-color: rgba(28, 105, 105, .6);
+  background-color: rgba(28, 105, 105, .7);
 }
 
 #main-part .mdl-button:active {
@@ -361,6 +361,7 @@ header h1 .optional {
   line-height: 1.38em;
   margin: 0;
   color: #4fffff;
+  opacity: 0.8;
   font-size: 13px;
 }
 
@@ -784,6 +785,7 @@ g.column rect {
 
 .metrics .output-stats {
   color: #4fffff;
+  opacity: 0.8;
 }
 
 #loss-test {
