@@ -554,7 +554,6 @@ g.column rect {
 /* output-image column */
 .output-image.column {
   width: 20%;
-  padding-top: 40px;
 }
 
 .output-image.column .output-viewport {

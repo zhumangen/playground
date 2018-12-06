@@ -27,6 +27,7 @@ const config = {
 };
 
 cornerstoneWADOImageLoader.webWorkerManager.initialize(config);
+cornerstoneTools.toolColors.setToolColor('#ff0912');
 
 // Export scripts that will populate the Cornerstone namespace as a side effect only import.
 // This is effectively the public API...

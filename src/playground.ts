@@ -32,19 +32,22 @@ import * as d3 from 'd3';
 
 const viewports = d3.selectAll('.input-viewport .viewport');
 const output = d3.select('.output-viewport .viewport');
-console.log('output: ', output);
+const imageIds = Object.keys(vi.imageData);
+
 viewports.each(function(d, i) {
   const element = this;
-  vi.displayImage(element, vi.imageIds[i], function(element) {
+  vi.displayImage(element, imageIds[i], function(element) {
     d3.select(element).select('.loading').remove();
     d3.select(element).on("click", function() {
       const element = this;
       viewports.classed('selected', false);
       d3.select(element).classed('selected', true);
+      player.play();
       output.each(function() {
         d3.select(this).selectAll('img').classed('hide', false);
         vi.displayImageFromElement(element, this, function(element) {
           d3.select(element).selectAll('img').classed('hide', true);
+          vi.drawLesionData(element);
         });
       });
     });
