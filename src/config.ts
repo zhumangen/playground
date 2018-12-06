@@ -15,12 +15,12 @@ const maxWebWorkers = Math.max(navigator.hardwareConcurrency - 1, 1);
 const config = {
   maxWebWorkers: maxWebWorkers,
 	startWebWorkersOnDemand: true,
-    webWorkerPath : 'lib/cornerstoneWADOImageLoaderWebWorker.js',
+    webWorkerPath : './cornerstoneWADOImageLoaderWebWorker.js',
     taskConfiguration: {
         'decodeTask' : {
         loadCodecsOnStartup : true,
         initializeCodecsOnStartup: false,
-            codecsPath: 'lib/cornerstoneWADOImageLoaderCodecs.js',
+            codecsPath: './cornerstoneWADOImageLoaderCodecs.js',
             usePDFJS: false
         }
     }

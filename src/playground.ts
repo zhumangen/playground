@@ -13,6 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
+import * as vi from "./vi";
 import * as nn from "./nn";
 import {HeatMap, reduceMatrix} from "./heatmap";
 import {
@@ -28,6 +29,27 @@ import {
 import {Example2D, shuffle} from "./dataset";
 import {AppendingLineChart} from "./linechart";
 import * as d3 from 'd3';
+
+const viewports = d3.selectAll('.input-viewport .viewport');
+const output = d3.select('.output-viewport .viewport');
+console.log('output: ', output);
+viewports.each(function(d, i) {
+  const element = this;
+  vi.displayImage(element, vi.imageIds[i], function(element) {
+    d3.select(element).select('.loading').remove();
+    d3.select(element).on("click", function() {
+      const element = this;
+      viewports.classed('selected', false);
+      d3.select(element).classed('selected', true);
+      output.each(function() {
+        d3.select(this).selectAll('img').classed('hide', false);
+        vi.displayImageFromElement(element, this, function(element) {
+          d3.select(element).selectAll('img').classed('hide', true);
+        });
+      });
+    });
+  });
+});
 
 let mainWidth;
 

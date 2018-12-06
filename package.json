@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "start": "npm run serve-watch",
-    "prep": "copyfiles analytics.js dist && concat node_modules/material-design-lite/material.min.js node_modules/seedrandom/seedrandom.min.js > dist/lib.js && copyfiles progress_spin.svg dist/img && copyfiles cornerstoneWADOImageLoaderWebWorker.js dist/lib && copyfiles cornerstoneWADOImageLoaderCodecs.js dist/lib",
+    "prep": "copyfiles analytics.js dist && concat node_modules/material-design-lite/material.min.js node_modules/seedrandom/seedrandom.min.js > dist/lib.js && concat img/progress_spin.svg -o dist/progress_spin.svg && concat node_modules/cornerstone-wado-image-loader/dist/cornerstoneWADOImageLoaderWebWorker.js -o dist/cornerstoneWADOImageLoaderWebWorker.js && concat node_modules/cornerstone-wado-image-loader/dist/cornerstoneWADOImageLoaderCodecs.js -o dist/cornerstoneWADOImageLoaderCodecs.js",
     "build-css": "concat node_modules/material-design-lite/material.min.css styles.css > dist/bundle.css",
     "watch-css": "concat node_modules/material-design-lite/material.min.css styles.css -o dist/bundle.css",
     "build-html": "copyfiles index.html dist",
