@@ -75,10 +75,6 @@ export const imageData = {
 export function displayImage(element, imageId, loaded) {
   cs.cornerstone.enable(element);
   cs.cornerstone.loadAndCacheImage(imageId).then(image => {
-    if (loaded) {
-      loaded.call(image, element);
-    }
-
     const defViewport = cs.cornerstone.getDefaultViewport(element, image);
     cs.cornerstone.displayImage(element, image, defViewport);
     cs.cornerstone.fitToWindow(element);
@@ -94,6 +90,10 @@ export function displayImage(element, imageId, loaded) {
     cs.cornerstoneTools.pan.activate(element, 2); // pan is the default tool for middle mouse button
     //cornerstoneTools.zoom.activate(element, 1); // zoom is the default tool for right mouse button
     cs.cornerstoneTools.zoomWheel.activate(element, 2);
+
+    if (loaded) {
+      loaded.call(image, element);
+    }
   });
 }
 

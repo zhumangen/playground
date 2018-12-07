@@ -33,26 +33,35 @@ import * as d3 from 'd3';
 const viewports = d3.selectAll('.input-viewport .viewport');
 const output = d3.select('.output-viewport .viewport');
 const imageIds = Object.keys(vi.imageData);
+let currentElement = null;
 
 viewports.each(function(d, i) {
   const element = this;
   vi.displayImage(element, imageIds[i], function(element) {
     d3.select(element).select('.loading').remove();
     d3.select(element).on("click", function() {
-      const element = this;
+      currentElement = this;
       viewports.classed('selected', false);
-      d3.select(element).classed('selected', true);
+      d3.select(currentElement).classed('selected', true);
+      reset();
       player.play();
       output.each(function() {
         d3.select(this).selectAll('img').classed('hide', false);
-        vi.displayImageFromElement(element, this, function(element) {
-          d3.select(element).selectAll('img').classed('hide', true);
-          vi.drawLesionData(element);
-        });
+        d3.select(this).selectAll('canvas').classed('hide', true);
       });
     });
   });
 });
+
+function displayOutputImage() {
+  output.each(function() {
+    vi.displayImageFromElement(currentElement, this, function(element) {
+      d3.select(element).selectAll('img').classed('hide', true);
+      d3.select(element).selectAll('canvas').classed('hide', false);
+      vi.drawLesionData(element);
+    });
+  });
+}
 
 let mainWidth;
 
@@ -198,7 +207,7 @@ let lossTrain = 0;
 let lossTest = 0;
 let player = new Player();
 let lineChart = new AppendingLineChart(d3.select("#linechart"),
-    ["#777", "black"]);
+    ["#4fffff", "#61ff4f"]);
 
 function makeGUI() {
   d3.select("#reset-button").on("click", () => {
@@ -946,6 +955,10 @@ function oneStep(): void {
   lossTrain = getLoss(network, trainData);
   lossTest = getLoss(network, testData);
   updateUI();
+
+  if (lossTrain < 0.001 || lossTest < 0.001) {
+    displayOutputImage();
+  }
 }
 
 export function getOutputWeights(network: nn.Node[][]): number[] {
