@@ -15,7 +15,7 @@
     "watch-js": "watchify src/playground.ts -p [tsify] -v --debug -o dist/bundle.js",
     "build": "npm run prep && npm run build-js && npm run build-css && npm run build-html",
     "watch": "npm run prep && concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-html\"",
-    "serve": "http-server -o -c-1 dist/",
+    "serve": "http-server -p 8800 -o -c-1 dist/",
     "serve-watch": "concurrently \"npm run serve\" \"npm run watch\""
   },
   "devDependencies": {
