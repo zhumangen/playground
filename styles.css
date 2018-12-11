@@ -60,7 +60,7 @@ p a {
 }
 
 .l--page {
-  padding: 20px 30px
+  padding: 8px 16px
 }
 
 /* Buttons */
@@ -692,9 +692,12 @@ g.column rect {
 }
 
 #network .core .link {
-  stroke-dasharray: 9 1;
+  stroke-dasharray: 6 4;
   stroke-dashoffset: 1;
-  /*-webkit-animation: 0.5s linear 0s infinite flowing;*/
+}
+
+#network .core .ani {
+  -webkit-animation: 0.2s linear 0s infinite flowing;
 }
 
 /** Invisible thick links used for showing weight values on mouse hover. */
@@ -792,9 +795,9 @@ g.column rect {
 
 #linechart {
   position: absolute;
-  top: 14px;
+  top: 10px;
   right: 0;
-  width: 66%;
+  width: 62%;
   height: 55px;
 }
 

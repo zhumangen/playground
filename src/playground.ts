@@ -56,6 +56,7 @@ viewports.each(function(d, i) {
 function displayOutputImage() {
   output.each(function() {
     vi.displayImageFromElement(currentElement, this, function(element) {
+      player.pause();
       d3.select(element).selectAll('img').classed('hide', true);
       d3.select(element).selectAll('canvas').classed('hide', false);
       vi.drawLesionData(element);
@@ -97,13 +98,20 @@ interface InputFeature {
 }
 
 let INPUTS: {[name: string]: InputFeature} = {
-  "x": {f: (x, y) => x, label: "X_1"},
-  "y": {f: (x, y) => y, label: "X_2"},
-  "xSquared": {f: (x, y) => x * x, label: "X_1^2"},
-  "ySquared": {f: (x, y) => y * y,  label: "X_2^2"},
-  "xTimesY": {f: (x, y) => x * y, label: "X_1X_2"},
-  "sinX": {f: (x, y) => Math.sin(x), label: "sin(X_1)"},
-  "sinY": {f: (x, y) => Math.sin(y), label: "sin(X_2)"},
+  // "x": {f: (x, y) => x, label: "X_1"},
+  // "y": {f: (x, y) => y, label: "X_2"},
+  // "xSquared": {f: (x, y) => x * x, label: "X_1^2"},
+  // "ySquared": {f: (x, y) => y * y,  label: "X_2^2"},
+  // "xTimesY": {f: (x, y) => x * y, label: "X_1X_2"},
+  // "sinX": {f: (x, y) => Math.sin(x), label: "sin(X_1)"},
+  // "sinY": {f: (x, y) => Math.sin(y), label: "sin(X_2)"},
+  "x": {f: (x, y) => x, label: ""},
+  "y": {f: (x, y) => y, label: ""},
+  "xSquared": {f: (x, y) => x * x, label: ""},
+  "ySquared": {f: (x, y) => y * y,  label: ""},
+  "xTimesY": {f: (x, y) => x * y, label: ""},
+  "sinX": {f: (x, y) => Math.sin(x), label: ""},
+  "sinY": {f: (x, y) => Math.sin(y), label: ""},
 };
 
 let HIDABLE_CONTROLS = [
@@ -154,6 +162,8 @@ class Player {
       this.callback(this.isPlaying);
     }
     this.start(this.timerIndex);
+
+    d3.selectAll("#network .core .link").classed("ani", true);
   }
 
   pause() {
@@ -162,6 +172,8 @@ class Player {
     if (this.callback) {
       this.callback(this.isPlaying);
     }
+
+    d3.selectAll("#network .core .link").classed("ani", false);
   }
 
   private start(localTimerIndex: number) {
@@ -444,7 +456,7 @@ function updateWeightsUI(network: nn.Node[][], container) {
         let link = node.inputLinks[j];
         container.select(`#link${link.source.id}-${link.dest.id}`)
             .style({
-              "stroke-dashoffset": -iter / 3,
+              // "stroke-dashoffset": -iter / 1.5,
               "stroke-width": linkWidthScale(Math.abs(link.weight)),
               "stroke": colorScale(link.weight)
             })
@@ -986,6 +998,7 @@ function reset(onStartup=false) {
 
   d3.select("#layers-label").text('隐藏层');
   d3.select("#num-layers").text(state.numHiddenLayers);
+  d3.selectAll("#network .core .link").classed("ani", false);
 
   // Make a simple network.
   iter = 0;

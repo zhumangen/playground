@@ -150,12 +150,12 @@ export class State {
   collectStats = false;
   numHiddenLayers = 1;
   hiddenLayerControls: any[] = [];
-  networkShape: number[] = [4, 2];
+  networkShape: number[] = [6, 5, 3];
   x = true;
   y = true;
   xTimesY = false;
-  xSquared = false;
-  ySquared = false;
+  xSquared = true;
+  ySquared = true;
   cosX = false;
   sinX = false;
   cosY = false;
