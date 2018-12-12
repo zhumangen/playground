@@ -15,6 +15,7 @@ limitations under the License.
 
 import * as vi from "./vi";
 import * as nn from "./nn";
+import * as ec from './echarts';
 import {HeatMap, reduceMatrix} from "./heatmap";
 import {
   State,
@@ -61,6 +62,7 @@ function displayOutputImage() {
       d3.select(element).selectAll('img').classed('hide', true);
       d3.select(element).selectAll('canvas').classed('hide', false);
       vi.drawLesionData(element);
+      ec.updateEcharts(vi.getEchartsData(element), d3.select('.output-echart')[0][0]);
     });
   });
 }

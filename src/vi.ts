@@ -120,6 +120,17 @@ export function drawLesionData(element) {
   }
 }
 
+export function getEchartsData(element) {
+  const elem = cs.cornerstone.getEnabledElement(element);
+  if (elem && elem.image) {
+    const data = imageData[elem.image.imageId];
+    return {
+      abnormalScore: data.abnormalScore,
+      tbScore: data.tbScore,
+    }
+  }
+}
+
 export function updateImage(element) {
   cs.cornerstone.updateImage(element);
 }

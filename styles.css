@@ -60,7 +60,7 @@ p a {
 }
 
 .l--page {
-  padding: 16px;
+  padding: 16px 6px;
 }
 
 /* Buttons */
@@ -571,13 +571,13 @@ g.column rect {
 }
 
 .output-metrics.column {
-  width: 40%;
+  width: 50%;
   height: 100%
 }
 
 .output-metrics.column .metrics {
   height: 60px;
-  margin-bottom: 4px;
+  margin-right: 4px;
 }
 
 /* output-image column */
