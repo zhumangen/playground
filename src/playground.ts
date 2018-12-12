@@ -34,9 +34,14 @@ const viewports = d3.selectAll('.input-viewport .viewport');
 const output = d3.select('.output-viewport .viewport');
 const imageIds = Object.keys(vi.imageData);
 let currentElement = null;
+let isFinished = false;
 
 viewports.each(function(d, i) {
   const element = this;
+  if (!currentElement) {
+    currentElement = element;
+    d3.select(currentElement).classed('selected', true);
+  }
   vi.displayImage(element, imageIds[i], function(element) {
     d3.select(element).select('.loading').remove();
     d3.select(element).on("click", function() {
@@ -44,16 +49,12 @@ viewports.each(function(d, i) {
       viewports.classed('selected', false);
       d3.select(currentElement).classed('selected', true);
       reset();
-      player.play();
-      output.each(function() {
-        d3.select(this).selectAll('img').classed('hide', false);
-        d3.select(this).selectAll('canvas').classed('hide', true);
-      });
     });
   });
 });
 
 function displayOutputImage() {
+  isFinished = true;
   output.each(function() {
     vi.displayImageFromElement(currentElement, this, function(element) {
       player.pause();
@@ -222,23 +223,26 @@ let lineChart = new AppendingLineChart(d3.select("#linechart"),
     ["#4fffff", "#61ff4f"]);
 
 function makeGUI() {
-  d3.select("#reset-button").on("click", () => {
+  d3.select("#reset-button-big").on("click", () => {
     reset();
     userHasInteracted();
-    d3.select("#play-pause-button");
+    d3.select("#play-pause-button-big");
   });
 
-  d3.select("#play-pause-button").on("click", function () {
+  d3.select("#play-pause-button-big").on("click", function () {
+    if (isFinished) reset();
+
     // Change the button's content.
     userHasInteracted();
     player.playOrPause();
   });
 
   player.onPlayPause(isPlaying => {
-    d3.select("#play-pause-button").classed("playing", isPlaying);
+    d3.select("#play-pause-button-big").classed("playing", isPlaying);
+    output.selectAll('img').classed('hide', !isPlaying);
   });
 
-  d3.select("#next-step-button").on("click", () => {
+  d3.select("#next-step-button-big").on("click", () => {
     player.pause();
     userHasInteracted();
     if (iter === 0) {
@@ -630,7 +634,7 @@ function drawNetwork(network: nn.Node[][]): void {
     let numNodes = network[layerIdx].length;
     let cx = layerScale(layerIdx) + RECT_SIZE / 2;
     maxY = Math.max(maxY, nodeIndexScale(numNodes));
-    addPlusMinusControl(layerScale(layerIdx), layerIdx);
+    // addPlusMinusControl(layerScale(layerIdx), layerIdx);
     for (let i = 0; i < numNodes; i++) {
       let node = network[layerIdx][i];
       let cy = nodeIndexScale(i) + RECT_SIZE / 2;
@@ -999,6 +1003,11 @@ function reset(onStartup=false) {
   d3.select("#layers-label").text('隐藏层');
   d3.select("#num-layers").text(state.numHiddenLayers);
   d3.selectAll("#network .core .link").classed("ani", false);
+  output.each(function() {
+    d3.select(this).selectAll('img').classed('hide', true);
+    d3.select(this).selectAll('canvas').classed('hide', true);
+  });
+  isFinished = false;
 
   // Make a simple network.
   iter = 0;

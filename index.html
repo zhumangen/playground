@@ -248,6 +248,18 @@ limitations under the License.
           </div> -->
         </div>
       </div>
+      <div class="timeline-controls">
+        <button class="mdl-button mdl-js-button mdl-button--icon ui-resetButton" id="reset-button-big" title="Reset the network">
+          <i class="material-icons">replay</i>
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored ui-playButton" id="play-pause-button-big" title="Run/Pause">
+          <i class="material-icons">play_arrow</i>
+          <i class="material-icons">pause</i>
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--icon ui-stepButton" id="next-step-button-big" title="Step">
+          <i class="material-icons">skip_next</i>
+        </button>
+      </div>
     </div>
 
     <!-- Hidden Layers Column -->
@@ -265,6 +277,20 @@ limitations under the License.
         <span id="layers-label"></span>
       </h4>
       <div class="bracket"></div>
+    </div>
+
+    <div class="column output-metrics">
+      <div class="metrics">
+        <div class="output-stats ui-percTrainData">
+          <span>测试损失：</span>
+          <div class="value" id="loss-test"></div>
+        </div>
+        <div class="output-stats train">
+          <span>训练损失：</span>
+          <div class="value" id="loss-train"></div>
+        </div>
+        <div id="linechart"></div>
+      </div>
     </div>
 
     <!-- Output Column -->
@@ -316,21 +342,12 @@ limitations under the License.
       </div>
     </div>
     <div class="column output-image">
-      <div class="metrics">
-        <div class="output-stats ui-percTrainData">
-          <span>测试损失：</span>
-          <div class="value" id="loss-test"></div>
-        </div>
-        <div class="output-stats train">
-          <span>训练损失：</span>
-          <div class="value" id="loss-train"></div>
-        </div>
-        <div id="linechart"></div>
-      </div>
       <div class="output-viewport">
         <div class="viewport" style="position: relative;" oncontextmenu="return false">
           <img class="loading hide" src="progress_spin.svg" alt="" width="128" height="128" style="position: absolute; left: 50%; top: 50%; margin-top: -64px; margin-left: -64px; z-index: 10">
         </div>
+      </div>
+      <div class="output-echart">
       </div>
     </div>
 
