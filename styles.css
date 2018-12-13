@@ -577,7 +577,7 @@ g.column rect {
 
 .output-metrics.column .metrics {
   height: 60px;
-  margin-right: 4px;
+  margin-right: 16px;
 }
 
 /* output-image column */
@@ -629,7 +629,8 @@ g.column rect {
   text-align: center;
   line-height: 28px;
   top: 576px;
-  width: 760px;
+  left: 200%;
+  width: 260px;
   height: 60px;
   font-size: 48px;
   z-index: 100;
@@ -844,7 +845,7 @@ g.column rect {
   position: absolute;
   top: 15px;
   left: 130px;
-  right: 10px;
+  right: 16px;
   height: 50px;
 }
 

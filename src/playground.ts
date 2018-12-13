@@ -36,6 +36,10 @@ const output = d3.select('.output-viewport .viewport');
 const imageIds = Object.keys(vi.imageData);
 let currentElement = null;
 let isFinished = false;
+const ecData = {
+  abnormalScore: 0,
+  tbScore: 0
+}
 
 viewports.each(function(d, i) {
   const element = this;
@@ -242,6 +246,7 @@ function makeGUI() {
   player.onPlayPause(isPlaying => {
     d3.select("#play-pause-button-big").classed("playing", isPlaying);
     output.selectAll('img').classed('hide', !isPlaying);
+    if (isPlaying) updateEcharts();
   });
 
   d3.select("#next-step-button-big").on("click", () => {
@@ -974,9 +979,20 @@ function oneStep(): void {
   lossTest = getLoss(network, testData);
   updateUI();
 
+  if (iter % 10 === 0) {
+    updateEcharts();
+    console.log('iter: ', iter);
+  }
+
   if (lossTrain < 0.001 || lossTest < 0.001) {
     displayOutputImage();
   }
+}
+
+function updateEcharts() {
+  ec.updateEcharts(ecData, d3.select('.output-echart')[0][0]);
+  ecData.abnormalScore += 0.1;
+  ecData.tbScore += 0.1;
 }
 
 export function getOutputWeights(network: nn.Node[][]): number[] {
@@ -1005,11 +1021,13 @@ function reset(onStartup=false) {
   d3.select("#layers-label").text('隐藏层');
   d3.select("#num-layers").text(state.numHiddenLayers);
   d3.selectAll("#network .core .link").classed("ani", false);
-  output.each(function() {
-    d3.select(this).selectAll('img').classed('hide', true);
-    d3.select(this).selectAll('canvas').classed('hide', true);
-  });
+  output.selectAll('img').classed('hide', true);
+  output.selectAll('canvas').classed('hide', true);
   isFinished = false;
+  ecData.abnormalScore = 0;
+  ecData.tbScore = 0;
+  updateEcharts();
+
 
   // Make a simple network.
   iter = 0;

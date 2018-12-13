@@ -2,17 +2,17 @@ import * as cs from './config';
 import * as ct from './configTool';
 
 export const imageData = {
-  'wadouri:http://47.100.43.165/v1/picl/aets/piclarc/wado?studyUID=1.2.168.8200.441.1107101101.11071011012&seriesUID=1.2.168.8200.441.1107101101.11071011011&objectUID=1.2.168.8200.441.1107101101.20180421150906&requestType=WADO&contentType=application/dicom': {
-    "id": "b27b6596-e729-11e8-8976-7cd30ad3aa0c",
-    "accessionNum": "20181105153910-054712",
-    "studyUid": "1.2.168.8200.441.1107101101.11071011012",
-    "seriesUid": "1.2.168.8200.441.1107101101.11071011011",
-    "objectUid": "1.2.168.8200.441.1107101101.20180421150906",
-    "docName": "lj",
+  'wadouri:http://47.100.43.165/v1/picl/aets/piclarc/wado?studyUID=1.2.410.200024.1.01.0.20180416.115846.01&seriesUID=1.2.410.200024.1.02.0.20180416.115846.02&objectUID=1.2.410.200024.1.03.0.20180416.115846.03&requestType=WADO&contentType=application/dicom': {
+    "id": "df17b894-eaf1-11e8-8976-7cd30ad3aa0c",
+    "accessionNum": "20181101171008-745301",
+    "studyUid": "1.2.410.200024.1.01.0.20180416.115846.01",
+    "seriesUid": "1.2.410.200024.1.02.0.20180416.115846.02",
+    "objectUid": "1.2.410.200024.1.03.0.20180416.115846.03",
+    "docName": "lwx",
     "isAi": 0,
-    "createTime": "2018-11-13 17:51:31",
-    "abnormalScore": 1.0,
-    "tbScore": 1.0,
+    "createTime": "2018-11-18 13:21:59",
+    "abnormalScore": 0.93,
+    "tbScore": 0.91,
     "activeScore": 0.5,
     "adviceCode": 1,
     "normalityCode": 3,
@@ -20,24 +20,44 @@ export const imageData = {
     "activityCode": -1,
     "lesions": [
       {
-        "id": "b27baaa0-e729-11e8-8976-7cd30ad3aa0c",
-        "aiTbId": "b27b6596-e729-11e8-8976-7cd30ad3aa0c",
+        "id": "df17f326-eaf1-11e8-8976-7cd30ad3aa0c",
+        "aiTbId": "df17b894-eaf1-11e8-8976-7cd30ad3aa0c",
         "type": "钙化灶",
-        "prob": 0.9125757217407227,
-        "xmin": 971.359512090683,
-        "xmax": 1655.7673966884613,
-        "ymin": 465.7627083957195,
-        "ymax": 1683.8173087835312
+        "prob": 0.6951630115509033,
+        "xmin": 2039.9365631341934,
+        "xmax": 2126.6949659585953,
+        "ymin": 1332.4393030107021,
+        "ymax": 1409.825814574957
       },
       {
-        "id": "b27bd899-e729-11e8-8976-7cd30ad3aa0c",
-        "aiTbId": "b27b6596-e729-11e8-8976-7cd30ad3aa0c",
+        "id": "df182090-eaf1-11e8-8976-7cd30ad3aa0c",
+        "aiTbId": "df17b894-eaf1-11e8-8976-7cd30ad3aa0c",
         "type": "钙化灶",
-        "prob": 0.866115391254425,
-        "xmin": 2476.5739138126373,
-        "xmax": 3189.54625582695,
-        "ymin": 490.16069608926773,
-        "ymax": 1509.699081659317
+        "prob": 0.5878130793571472,
+        "xmin": 463.8814481943846,
+        "xmax": 527.2125930339098,
+        "ymin": 1430.8637795448303,
+        "ymax": 1491.7766593694687
+      },
+      {
+        "id": "df1877f9-eaf1-11e8-8976-7cd30ad3aa0c",
+        "aiTbId": "df17b894-eaf1-11e8-8976-7cd30ad3aa0c",
+        "type": "钙化灶",
+        "prob": 0.4951009452342987,
+        "xmin": 820.2814965546131,
+        "xmax": 1045.6142102479935,
+        "ymin": 502.1914445757866,
+        "ymax": 634.2756340205669
+      },
+      {
+        "id": "df18a086-eaf1-11e8-8976-7cd30ad3aa0c",
+        "aiTbId": "df17b894-eaf1-11e8-8976-7cd30ad3aa0c",
+        "type": "索条状病灶",
+        "prob": 0.3609699308872223,
+        "xmin": 1571.5728538632393,
+        "xmax": 1890.8728969097137,
+        "ymin": 649.6167959421873,
+        "ymax": 967.6791990995407
       }
     ]
   },
